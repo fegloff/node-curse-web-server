@@ -2,6 +2,14 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+/*
+ * Heroku stores the port number as an enviroment variable. 
+ * process is an object which stores all system enviroment 
+ * variable as a key-value pair If a variable PORT is not define 
+ * (e.g. testing locally), port constant will have a value of 3000
+ */
+const port = process.env.PORT || 3000;
+
 var app = express();
 
 /*
@@ -100,6 +108,6 @@ app.get('/bad',(req,res) => {
 * To bind the application to a port on our machine (sever),
 * and making the app to start listeing
 */
-app.listen(3000,() => {
-    console.log('Server is up on port 3000');
+app.listen(port,() => {
+    console.log(`Server is up on port ${port}`);
 });

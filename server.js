@@ -98,12 +98,19 @@ app.get('/about', (req,res) => {
     });
 })
 
+app.get('/projects', (req,res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects Page'
+    });
+})
+
 app.get('/bad',(req,res) => {
     res.send({
         code : '404',
         errorMessage: 'Error handling request'
     });
 })
+
 /*
 * To bind the application to a port on our machine (sever),
 * and making the app to start listeing
